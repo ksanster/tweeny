@@ -136,14 +136,14 @@ package com.tengu.tween
 		
 		public function start ():ITween
 		{
-			parse(startParams, reverseFlag);
 			if (delay > 0)
 			{
 				Tweeny.delayedTweens[this] = true;
 			}
 			else
 			{
-				Tweeny.activeTweens[this] = true; 
+			    parse(startParams, reverseFlag);
+				Tweeny.activeTweens[this] = true;
 			}
 			return this;
 		}

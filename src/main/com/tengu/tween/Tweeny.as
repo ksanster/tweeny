@@ -33,7 +33,7 @@ package com.tengu.tween
         }
 
         /**
-         * Если не задано, то все длительности будут вычисляться в тиках, а не в секундах
+         * If set, all intervals will be set in seconds, else - in frames
          */
         public static function setFramerate (value:uint):void
         {
@@ -113,7 +113,6 @@ package com.tengu.tween
                 tween = o as Tween;
                 if (tween.tick())
                 {
-                    delete activeTweens[tween];
                     tween.kill(true);
                 }
             }
@@ -124,7 +123,7 @@ package com.tengu.tween
                 if (tween.delay <= 0)
                 {
                     delete delayedTweens[tween];
-                    activeTweens[tween] = true;
+                    tween.start();
                 }
             }
         }
