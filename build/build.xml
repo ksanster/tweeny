@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="tengu-tweeny" basedir=".." default="build">
+   
+   <property file="build/local.properties" />
+   <property file="build/build.properties" />
+   
+   <target name="init.sdk.properties">
+       <input message="Please enter path to flex sdk home directory (you can specify 'flex.sdk.dir' property in 'local.properties' file to skip this step next time):" addproperty="flex.sdk.dir" defaultvalue="C:/flexsdk" />
+       <property name="compc.path" value="${flex.sdk.dir}/bin/compc.exe" />
+   </target>
+   
+   <target name="build" depends="init.sdk.properties">
+       <echo level="info" message="Build project: ${ant.project.name}"/>
+       <antcall target="compile.swc" />
+   </target>
+
+   <target name="compile.swc" depends="copy.swc.config">
+       <exec executable="${compc.path}">
+           <arg line="-load-config '${output.dir}/${output.swc.config.file}'" />
+       </exec>
+       <delete file="${output.dir}/${output.swc.config.file}" />
+   </target>
+
+   <target name="copy.swc.config">
+       <filter token="flex.sdk.dir" value="${flex.sdk.dir}" />
+       <filter token="source.main.dir" value="${source.main.dir}" />
+       <filter token="libs.dir" value="${libs.dir}" />
+       <filter token="output.dir" value="${output.dir}" />
+       <filter token="output.swc.file" value="${output.swc.file}" />
+       <copy file="${basedir}/build/${output.swc.config.file}" tofile="${output.dir}/${output.swc.config.file}" filtering="true" />
+   </target>
+</project>

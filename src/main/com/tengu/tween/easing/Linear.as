@@ -1,0 +1,1 @@
+﻿package com.tengu.tween.easing{    public class Linear    {        public static function easeNone (ratio:Number):Number        {            return ratio;        }    }}

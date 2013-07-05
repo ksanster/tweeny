@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flex-config>
+   <compiler>
+       <external-library-path>
+           <path-element>@flex.sdk.dir@/frameworks/libs/player/10.1/playerglobal.swc</path-element>
+       </external-library-path>
+       <library-path>
+           <path-element>@libs.dir@/tengu-corelib.swc</path-element>
+       </library-path>
+       <source-path>
+           <path-element>@source.main.dir@</path-element>
+       </source-path>
+   </compiler>
+   <output>@output.dir@/@output.swc.file@</output>
+   <include-sources>
+       <path-element>@source.main.dir@</path-element>
+   </include-sources>
+   <target-player>10</target-player>
+</flex-config>
