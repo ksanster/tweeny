@@ -53,6 +53,28 @@ package com.tengu.tween
             return tween;
         }
 
+        public static function hasTween (target:Object):Boolean
+        {
+            var tween:ITween = null;
+            var o:* = null;
+            for (o in activeTweens)
+            {
+                tween = o as ITween;
+                if (tween.target == target)
+                {
+                    return true;
+                }
+            }
+            for (o in delayedTweens)
+            {
+                tween = o as ITween;
+                if (tween.target == target)
+                {
+                    return true;
+                }
+            }
+        }
+
         public static function killOf (target:Object):void
         {
             var tween:ITween = null;
