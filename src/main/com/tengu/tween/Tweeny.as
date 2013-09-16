@@ -18,7 +18,7 @@ package com.tengu.tween
         internal static const activeTweens:Dictionary = new Dictionary();
         internal static const delayedTweens:Dictionary = new Dictionary();
 
-        private static var frameRate:uint = 1;
+        internal static var frameRate:uint = 1;
 
         private static const motor:Shape = function ():Shape
         {
@@ -73,6 +73,7 @@ package com.tengu.tween
                     return true;
                 }
             }
+            return false;
         }
 
         public static function killOf (target:Object):void

@@ -79,13 +79,13 @@ package com.tengu.tween
 
         public final function during (duration:uint):ITween
         {
-            this.duration = duration;
+            this.duration = duration * Tweeny.frameRate || 1;
             return this;
         }
 
         public final function wait (delay:uint):ITween
         {
-            this.delay = delay;
+            this.delay = delay * Tweeny.frameRate;
             return this;
         }
 
@@ -127,6 +127,7 @@ package com.tengu.tween
             {
                 completeHandlers.splice(idx, 1);
             }
+            delete completeParams[method];
         }
 
         internal final function tick ():Boolean
