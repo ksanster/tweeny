@@ -8,8 +8,8 @@ package com.tengu.tween.api
         function from (params:Object):ITween;
         function to (params:Object):ITween;
 
-        function during (duration:uint):ITween;
-        function wait (delay:uint):ITween;
+        function during (duration:Number):ITween;
+        function wait (delay:Number):ITween;
 
         function ease (method:Function):ITween;
 

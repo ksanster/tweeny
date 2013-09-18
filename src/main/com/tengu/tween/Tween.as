@@ -77,13 +77,13 @@ package com.tengu.tween
             return this;
         }
 
-        public final function during (duration:uint):ITween
+        public final function during (duration:Number):ITween
         {
             this.duration = duration * Tweeny.frameRate || 1;
             return this;
         }
 
-        public final function wait (delay:uint):ITween
+        public final function wait (delay:Number):ITween
         {
             this.delay = delay * Tweeny.frameRate;
             return this;
